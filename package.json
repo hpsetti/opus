@@ -47,6 +47,7 @@
     "vue-multiselect": "^3.0.0",
     "vue-router": "^4.2.5",
     "vue-slider-component": "^3.2.14",
+    "vue3-pdf-app": "^1.0.3",
     "vuetify": "^3.5.8",
     "vuex": "^3.4.0",
     "webpack": "^4.44.0",

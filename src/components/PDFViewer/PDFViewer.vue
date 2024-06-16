@@ -12,7 +12,9 @@
       </div>
     </div>
     <div class="pdf-viewer">
-      <PDFData
+      <div>{{ url }}</div>
+      <VuePdfApp style="height: 100vh; width: 100vw" :pdf="url" />
+      <!-- <PDFData
         class="pdf-viewer__main"
         :url="url"
         @page-count="updatePageCount"
@@ -36,26 +38,28 @@
           }"
           @scale-change="updateScale"
         />
-      </PDFData>
+      </PDFData> -->
     </div>
   </div>
 </template>
 <script>
-import PDFDocument from './PDFDocument.vue';
-import PDFData from './PDFData.vue';
+import VuePdfApp from "vue3-pdf-app";
+import PDFDocument from "./PDFDocument.vue";
+import PDFData from "./PDFData.vue";
 
 function floor(value, precision) {
   const multiplier = precision ? 10 ** precision : 10 ** 0;
   return Math.floor(value * multiplier) / multiplier;
 }
 export default {
-  name: 'PDFViewer',
+  name: "PDFViewer",
   components: {
     PDFDocument,
-    PDFData
+    PDFData,
+    VuePdfApp,
   },
   props: {
-    url: String
+    url: String,
   },
   data() {
     return {
@@ -64,7 +68,7 @@ export default {
       fit: undefined,
       currentPage: 1,
       pageCount: undefined,
-      isPreviewEnabled: false
+      isPreviewEnabled: false,
     };
   },
   methods: {
@@ -93,10 +97,10 @@ export default {
       );
     },
     onDocumentRendered() {
-      this.$emit('document-errored', this.url);
+      this.$emit("document-errored", this.url);
     },
     onDocumentErrored(e) {
-      this.$emit('document-errored', e);
+      this.$emit("document-errored", e);
     },
     updateScale({ scale, isOptimal = false }) {
       const roundedScale = floor(scale, 2);
@@ -114,16 +118,16 @@ export default {
     },
     togglePreview() {
       this.isPreviewEnabled = !this.isPreviewEnabled;
-    }
+    },
   },
   watch: {
     url() {
       this.currentPage = 1;
-    }
+    },
   },
   mounted() {
-    document.body.classList.add('overflow-hidden');
-  }
+    document.body.classList.add("overflow-hidden");
+  },
 };
 </script>
 <style scoped>
