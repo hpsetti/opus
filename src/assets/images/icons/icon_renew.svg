@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.1.0.18-->
+<svg stroke-width="0.501" stroke-linejoin="bevel" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="36pt" height="36pt" viewBox="0 0 36 36">
+ <defs>
+	</defs>
+ <g id="Document" fill="none" stroke="black" font-family="Times New Roman" font-size="16" transform="scale(1 -1)">
+  <g id="Spread" transform="translate(0 -36)">
+   <g id="Layer 1">
+    <path d="M 19.608,16.392 L 19.608,26.196 L 16.392,26.196 L 16.392,16.392 L 19.608,16.392 Z M 19.608,9.804 L 19.608,13.098 L 16.392,13.098 L 16.392,9.804 L 19.608,9.804 Z M 36,18 L 32.017,13.481 L 32.553,7.43 L 26.655,6.128 L 23.592,0.919 L 18,3.294 L 12.408,0.919 L 9.345,6.051 L 3.447,7.43 L 3.983,13.481 L 0,18 L 3.983,22.596 L 3.447,28.57 L 9.345,29.872 L 12.408,35.081 L 18,32.706 L 23.592,35.081 L 26.655,29.872 L 32.553,28.57 L 32.017,22.519 L 36,18 Z" fill-rule="nonzero" stroke-linejoin="round" stroke-linecap="round" stroke="none" stroke-width="3.849" fill="#2886d1" marker-start="none" marker-end="none" stroke-miterlimit="79.8403193612775"/>
+   </g>
+  </g>
+ </g>
+</svg>

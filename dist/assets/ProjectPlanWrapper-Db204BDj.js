@@ -1,0 +1,1 @@
+import{_ as o,c as r,b as t,o as c,r as n}from"./index-BlMJxPGQ.js";const s={},a={class:"content-wrappper"};function _(p,i){const e=n("router-view");return c(),r("div",a,[t(e)])}const d=o(s,[["render",_]]);export{d as default};

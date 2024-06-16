@@ -1,0 +1,758 @@
+{
+  "Full OPUS URRA template": {
+    "Risk ID": {
+      "Definition": "A risk identification number is a unique identifier for each row in the use-related risk analysis.",
+      "SampleUseNumbers": ["URRA001", "URRA002", "URRA003"],
+      "Tips": "It is important for each row to have a unique risk identification number:",
+      "Tablecontent": [
+        "<div class='tables_container'> <div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> </div><table> <tr> <th class='text-button-label'>Risk ID</th> <th class='text-button-label'>Use scenario</th> <th class='text-button-label'>Task</th> <th class='text-button-label'>Use error </th> </tr><tr> <td class='sort-label green-4'>URRA010</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Remove needle cap</td><td class='sort-label'>User discards needle cap in trash</td></tr><tr> <td class='sort-label green-4'>URRA011</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Discard needle cap in sharps container</td><td class='sort-label'>User re-caps needle</td></tr><tr> <td class='sort-label green-4'>URRA012</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Discard needle cap in sharps container</td><td class='sort-label'>User does not discard needle cap</td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><table> <tr> <th class='text-button-label'>Risk ID</th> <th class='text-button-label'>Use scenario</th> <th class='text-button-label'>Task</th> <th class='text-button-label'>Use error </th> </tr><tr> <td class='sort-label text-required'>URRA010</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Discard needle cap in sharps container</td><td style='padding: 0'><table class='subTable' style='width:100%'><tr><td class='sort-label sub-custom-label-1'>User discards needle cap in trash</td></tr><tr><td class='sort-label sub-custom-label-2'>User re-caps needle</td></tr><tr><td class='sort-label sub-custom-label-3'>User does not discard needle cap</td></tr></table></td> </tr></table> </div><p class='text-regular-large table-container--content mt-20'>Each row should have a unique risk number because some tasks have multiple use errors and some use errors have multiple harms, and each needs its own identifier. You can also give each task a task identification number, but this should be distinct from the risk identification number.</p></div>"
+      ]
+    },
+    "Use scenarios": {
+      "Definition": "A use scenario is a high-level activity the user must complete. A use scenario includes multiple tasks.",
+      "SampleUseNumbers": [
+        "Set up device",
+        "Deliver treatment",
+        "Clean device"
+      ],
+      "Tips": "A URRA should include a comprehensive set of use scenarios, including all use scenarios performed by all user groups. Include those for set-up, troubleshooting, cleaning, maintenance, etc. For example:",
+      "Tablecontent": [
+        "<div class='tables_container'> <div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> </div><table> <tr> <th class='text-button-label' style='width: 150px'>Risk ID</th> <th class='text-button-label' style='width: 500px'> Use scenario </th> <th class='text-button-label' style='width: 121px'></th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Set up and pair device (patient)</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Administer dose (patient)</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'> Respond to low blood glucose alarm (patient) </td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'> Interpret weekly trends (patient and doctor) </td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'> Interpret monthly trends (patient and doctor) </td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Share data with doctor (patient)</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Accept data sharing request (doctor)</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'> Respond to connection lost alarm (patient) </td><td class='sort-label'></td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><p class='text-regular-large table-text'> URRA includes the most common use scenarios (e.g., deliver treatment), but leaves out less frequently performed scenarios (e.g., respond to alarm, clean system). </p><table> <tr> <th class='text-button-label' style='width: 150px'>Risk ID</th> <th class='text-button-label' style='width: 500px'> Use scenario </th> <th class='text-button-label' style='width: 121px'></th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Set up and pair device</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Administer dose</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Share data with doctor</td><td class='sort-label'></td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><p class='text-regular-large table-text'> URRA includes the use scenarios performed by one user group, but leaves out scenarios performed by other user groups (e.g., includes surgeon operating device, but omits circulating nurse opening package). </p><table> <tr> <th class='text-button-label' style='width: 150px'>Risk ID</th> <th class='text-button-label' style='width: 500px'> Use scenario </th> <th class='text-button-label' style='width: 121px'></th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Assume instrument control</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Navigate to tissue</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Apply electrocautery energy to tissue</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Retract instrument</td><td class='sort-label'></td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Assess hemostasis</td><td class='sort-label'></td></tr></table> </div><p class='text-regular-large table-container--content mt-20'> As you build more steps and use errors within each scenario (i.e., add more rows between different scenarios), identify the use scenario on each line of the table to facilitate searching/filtering/sorting. </p></div>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Select product type",
+          "placeholder": "Select product type",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select product type",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector",
+              "key": "Autoinjector"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe",
+              "key": "Prefilled Syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer",
+              "key": "Nebulizer"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter use scenario(s)",
+          "subtitle": "Consider the use scenarios that could exist with a product and its use.",
+          "placeholder": "Enter use scenario"
+        },
+        "answersContent": {
+          "Autoinjector": ["Store", "Prepare", "Inject", "Dispose"],
+          "Prefilled Syringe": ["Store", "Prepare", "Inject", "Dispose"],
+
+          "Nebulizer": [
+            "Assemble device",
+            "Clean handset",
+            "Prepare medication",
+            "Deliver treatment",
+            "Pause treatment"
+          ]
+        }
+      }
+    },
+    "Tasks": {
+      "Definition": "A task is a specific action the user completes, or a decision a user must make, to accomplish the use scenario.",
+      "SampleUseNumbers": [
+        "Press power button",
+        "Insert needle",
+        "Confirm device is not expired"
+      ],
+      "Tips": "A URRA should include all tasks as distinct actions that should be written as a single action. For example:",
+      "Tablecontent": [
+        "<div class='tables_container'> <div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> <span class='ml-5' >Tasks are broken down into single distinct actions.</span > </div><table> <tr> <th class='text-button-label' style='width: 110px'>Risk ID</th> <th class='text-button-label' style='width: 400px'> Use scenario </th> <th class='text-button-label' style='width: 261px'>Task</th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press logbook button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Select logbook entry</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press edit button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press edit button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press Save button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press Confirm button</td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><p class='text-regular-large task-table-text'> “Task” is too broad. It contains multiple steps or actions. </p><table> <tr> <th class='text-button-label' style='width: 110px'>Risk ID</th> <th class='text-button-label' style='width: 400px'> Use scenario </th> <th class='text-button-label' style='width: 261px'>Task</th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Set up and pair device</td><td class='sort-label'>Open logbook</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Administer dose</td><td class='sort-label'>Edit logbook entry</td></tr></table> </div><p class='text-regular-large table-container--content mt-20'> Some additional tips to consider when writing tasks: </p><ul class='text-regular-large table-container--content pl-30'> <li>Avoid combining tasks in single row</li><li>Avoid compounding tasks when possible (e.g., twist / pull)</li><li> Limit repetition of tasks when possible (assuming they are identical actions). For example, consider using a reference to earlier instance to maintain complete task flow. This is because as a URRA is iterated, it can be difficult to ensure consistency across all instances. However, you <em><span class='fw-600'>should</span></em> repeat task if associated use error and risk are different </li><li>Include optional tasks, not just those that are mandatory</li><li> Include troubleshooting and infrequent tasks (e.g., respond to alarm, notification) </li><li>Generally, referencing the IFU is not considered a “task”</li><li> In some cases, a decision might occur during a workflow that will determine which next step is taken. Consider if this is an actual task or simply a clinical judgement. </li></ul> </div>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Select product type",
+          "placeholder": "Select product type",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select product type",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector",
+              "key": "Autoinjector"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe",
+              "key": "Prefilled Syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer",
+              "key": "Nebulizer"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter tasks",
+          "subtitle": "Consider the tasks that could exist with a product and its use.",
+          "placeholder": "Enter task"
+        },
+        "answersContent": {
+          "Autoinjector": [
+            "Choose injection site",
+            "Expose bare skin",
+            "Clean injection site"
+          ],
+          "Prefilled Syringe": [
+            "Choose injection site",
+            "Expose bare skin",
+            "Clean injection site"
+          ],
+
+          "Nebulizer": [
+            "Plug power cord into wall outlet",
+            "Check aerosol head's expiration date",
+            "Assemble aerosol head "
+          ]
+        }
+      }
+    },
+    "Use errors": {
+      "Definition": "A use error occurs when a user performs a task incorrectly or does not perform a task.",
+      "SampleUseNumbers": [
+        "User did not open clamp",
+        "User injected expired medication",
+        "User used incorrect disinfectant"
+      ],
+      "Tips": "Ensure that the URRA includes a comprehensive list of use errors, even if they are unlikely or have been designed out. In most cases, each task will have multiple associated use errors because, at minimum, users could make an error of omission (inaction) or commission (incorrect action) at each task. The benefit of describing use errors with this level of detail is that it makes it easier to envision the right risk mitigations, which might differ for different use errors. For example, the risk mitigation for “not fully inserting the test strip” might be an alert indicating when the test strip is only partially inserted. In contrast, the risk mitigation for “inserting the test strip backwards” might be printing an arrow on the test strip to indicate which end the user should insert into the meter.",
+      "Tablecontent": [
+        "<div class='tables__container'> <div class='table_container'> <div class='d-flex align-items-center'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> </div><h3 class='ml-5 text-regular-large task-table-text'> List of errors includes both errors of omission (inaction) and errors of commission (incorrect action). </h3> <table> <tr> <th class='text-button-label' style='width: 105px'>Risk ID</th> <th class='text-button-label' style='width: 222px'> Use scenario </th> <th class='text-button-label' style='width: 222px'>Task</th> <th class='text-button-label' style='width: 222px'> Possible Use Errors </th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Prepare blood glucose meter</td><td class='sort-label'>Insert test strip</td><td class='sort-label'>User did not insert test strip</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted test strip backwards</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted test strip updside down</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User did not fully insert strip</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted incompatible test strip</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted used test strip</td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><p class='text-regular-large task-table-text'> Only use errors of omission are included. Missing errors of comission. </p><table> <tr> <th class='text-button-label' style='width: 105px'>Risk ID</th> <th class='text-button-label' style='width: 222px'> Use scenario </th> <th class='text-button-label' style='width: 222px'>Task</th> <th class='text-button-label' style='width: 222px'> Possible Use Errors </th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Prepare blood glucose meter</td><td class='sort-label'>Select correct package</td><td class='sort-label'>User does not select a package</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>Open package</td><td class='sort-label'>User does not open package</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>Remove device from package</td><td class='sort-label'> User does not remove device from pacakage </td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>Power on device</td><td class='sort-label'>User does not power on device</td></tr></table> </div><p class='text-regular-large table-container--content mt-20'> Some additional tips to consider when writing use errors: </p><p class='text-regular-large table-container--content mt-20'> The use error should include the user. Start with ‘user’ then the action/lack of action. For example: </p><ul class='text-regular-large table-container--content pl-30'> <li><u>User</u> did not connect cable,</li><li><u>User</u> did not change default setting</li><li><u>User</u> selected incorrect drug,</li><li><u>User</u> inserted battery upside down.</li></ul> <p class='text-regular-large table-container--content mt-20'> Use errors should make clear what the incorrect action or lack of action is. For example: </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> User set the reminder volume too low. </li><li> <span class='text-required fw-700'>Bad:</span> Reminder control is in the off state </li><li> <span class='green-4 fw-700'>Good:</span> User does not read the IFU </li><li> <span class='text-required fw-700'>Bad:</span> User’s performance does not align with instructions for use. Note: Include failure to reference or inability to follow steps in IFU if <em><span class='fw-700'>required</span></em> by task </li></ul> <p class='text-regular-large table-container--content mt-20'> Use errors should be written as actions: </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> User does not press button. </li><li> <span class='text-required fw-700'>Bad:</span> User does not know how to press button. Note: This is not an action, but rather implies how the user might cognitively understand the UI feature. Although not a use error, this could be a potential root cause for the error, and therefore a valuable input into potential mitigations and design requirements. </li></ul> <p class='text-regular-large table-container--content mt-20'> Use errors should be written from the user’s perspective: </p><ul class='text-regular-large table-container--content pl-30'> <li> Keep a standard format, such as “The user did [not]{insert action}” </li></ul> </div>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Select example task",
+          "placeholder": "Select example task",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select example task",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector : Remove cap",
+              "key": "Autoinjector : Remove cap"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe : Position syringe in dominant hand",
+              "key": "Prefilled Syringe : Position syringe in dominant hand"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer : Assemble aerosol head",
+              "key": "Nebulizer : Assemble aerosol head"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter use errors",
+          "subtitle": "Consider the use errors that occur while attempting the selected task.",
+          "placeholder": "Enter use errors"
+        },
+        "answersContent": {
+          "Autoinjector: Remove cap": [
+            "User is unable to apply the required force to remove cap",
+            "User removes the cap using a sharp tool",
+            "User accidentally fires the device during cap removal",
+            "User drops the device after removing the cap",
+            "User uses a device with the cap removed for > 15 minutes before use",
+            "User reattaches cap before use and fires device",
+            "User reattaches cap before use"
+          ],
+          "Prefilled Syringe: Position syringe in dominant hand": [
+            "User touches products in sharps bin",
+            "User drops product when trying to re-position",
+            "User sticks needle in flesh when repositioning product",
+            "User touches non-sterile surface with needle during product handling",
+            "User accidentally presses plunger",
+            "User touches needle against surface - Needle is bent/damaged"
+          ],
+
+          "Nebulizer: Assemble aerosol head": [
+            "User uses aerosol head intended for use with another drug",
+            "User inserts aerosol head upside down",
+            "User inserts aerosol head incorrectly",
+            "User cannot determine how to assemble aerosol head",
+            "User touches aerosol head center"
+          ]
+        }
+      }
+    },
+    "Hazards": {
+      "Definition": "A hazard is a potential source of harm.",
+      "SampleUseNumbers": [
+        "Exposed needle",
+        "Non-sterile material",
+        "Expired drug"
+      ],
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> Hazards should be written simply (I.e., using a couple of words). As a <em>source</em> of harm, the hazard should be a <em>noun</em>. However, use an <em>adjective</em> to describe what makes the <em>noun</em> a hazard. </p><ul class='text-regular-large table-container--content pl-30'> <li><span class='green-4 fw-700'>Good:</span> Damaged cable</li><li><span class='text-required fw-700'>Bad:</span> Cable</li></ul> <p class='text-regular-large tips--content'> Some additional tips to consider when identifying hazards: </p><ul class='text-regular-large table-container--content pl-30'> <li> Avoid repeating the harm. For example, <em>infection</em> is typically not a hazard. It is a harm caused by a hazard (e.g., non-sterile needle). </li><li> Identify hazards from different categories related to your product. For example, hazards might be chemical, biological, mechanical, functional, or related to energy transfer. </li></ul>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Example product",
+          "placeholder": "Select hazard",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select hazard",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector",
+              "key": "Autoinjector"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe",
+              "key": "Prefilled Syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer",
+              "key": "Nebulizer"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter hazards",
+          "subtitle": "Consider the Hazards (potential source of harm) that could exist with the selected product and its use.",
+          "placeholder": "Enter hazard"
+        },
+        "answersContent": {
+          "Autoinjector": [
+            "Degraded drug",
+            "Sharp needle",
+            "Unprescribed drug",
+            "Non-functional device",
+            "Lack of access to drug",
+            "Expired drug",
+            "Unprescribed drug",
+            "Damaged device",
+            "Contaminants",
+            "Microbial contaminants/Infectious agent",
+            "Incorrect injection site"
+          ],
+          "Prefilled Syringe": [
+            "Degraded drug",
+            "Sharp needle",
+            "Unprescribed drug",
+            "Lack of access to drug",
+            "Expired drug",
+            "Unprescribed drug",
+            "Damaged device",
+            "Microbial contaminants/Infectious agent",
+            "Incorrect injection site"
+          ],
+
+          "Nebulizer": [
+            "Missing component ",
+            "Exposed wire ",
+            "Broken power cord ",
+            "Reduced therapeutic treatment",
+            "Biological contamination",
+            "No battery power",
+            "Voltage",
+            "Damaged device",
+            "Unprescribed drug"
+          ]
+        }
+      }
+    },
+    "Hazardous situations": {
+      "Definition": "A hazardous situation is a circumstance in which a person, property of the environment is exposed to a hazard or possible harm.",
+      "SampleUseNumbers": [
+        "Device does not administer insulin",
+        "AED does not deliver shock",
+        "Syringe does not contain proper amount of drug"
+      ],
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> A hazardous situation should be concise, but can be one or two brief sentences as well. In addition, ensure there is a clear connection between the hazardous situation and the harm. </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> Wheels unlocked during patient treatment. </li><li> <span class='green-4 fw-700'>Good:</span> Wheels unlocked and bed moves during patient treatment. </li><li> <span class='text-required fw-700'>Bad:</span> Wheels unlocked. </li><li style='list-style: none'> Note: In this case, we cannot make a direct connection to a harm by simply saying the wheels are unlocked. Providing more context enables you to make a direct connection to a harm that might occur during that situation. </li></ul> <p class='text-regular-large tips--content'> Hazardous situations should not attempt to link too many different steps or assumptions together. </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='text-required fw-700'>Bad:</span> Expired drug injected. </li><li> <span class='text-required fw-700'>Bad:</span> Instructions were not clear, and user checks the wrong information on the box, and assumes the device is not expired, then injects expired drug. </li><li style='list-style: none'> Note: Adding too many assumptions about design flaws or users thinking can make the hazardous situation difficult to understand. For example, the <em>hazardous situation</em> is not reading unclear instructions, that is a root cause of an error. </li><li> <span class='text-required fw-700'>Bad:</span> Autoinjector is left in a travel bag, and then the expiration date passes, and then the user needs the autoinjector and checks the expiration date and realizes they cannot use it, and then no therapy is delivered. </li><li style='list-style: none'> Note: Foreseeable sequences of events such as this are useful to consider. But in a use-related risk analysis table format, each step and hazardous situation should be isolated in a separate row to ensure each interaction in the sequence is rated and mitigated. Other techniques, such as a Fault Tree analysis can be used to analyze how multiple steps and failures combine to cause a major failure (fault). </li></ul>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Example use errors and hazards",
+          "placeholder": "Select use errors and hazards",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select use errors and hazards",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector",
+              "subItemNames": {
+                "useError": "User does not keep product out of reach of children",
+                "hazard": "Unprescribed drug"
+              },
+              "key": "Autoinjector"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe",
+              "subItemNames": {
+                "useError": "User drops product when trying to re-position",
+                "hazard": "Microbial contaminants"
+              },
+              "key": "Prefilled Syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer",
+              "subItemNames": {
+                "useError": "User uses Aerosol Head intended for use with another drug",
+                "hazard": "Incorrect Device Assembly"
+              },
+              "key": "Nebulizer"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter hazardous situation",
+          "subtitle": "Consider how to describe the resulting hazardous situation(s) caused by the use error and exposed hazard.",
+          "placeholder": "Enter hazardous situation"
+        },
+        "answersContent": {
+          "Autoinjector": ["Unprescribed drug delivered"],
+          "Prefilled Syringe": [
+            "Needle gets contaminated - User injects with contaminated needle"
+          ],
+
+          "Nebulizer": [
+            "User fails to assemble device correctly, resulting in degraded system operation, and reduced therapeutic treatment"
+          ]
+        }
+      }
+    },
+    "Harms": {
+      "Definition": "A harm is a physical injury or damage to the health of a person. A use error causes harm.",
+      "SampleUseNumbers": ["Local infection", "Burn", "Delay in therapy"],
+      "Tips": "Harms should be brief and describe a condition that resulted from exposure to the hazard during the hazardous situation.",
+      "Tablecontent": [
+        "<ul class='text-regular-large table-container--content pl-30'> <li><span class='green-4 fw-700'>Good:</span> Local infection</li><li> <span class='text-required fw-700'>Bad:</span> Scraped against edge </li></ul> <p class='text-regular-large tips--content'> Some additional tips to consider when identifying harms: </p> <ul class='text-regular-large table-container--content pl-30'> <li> Be specific; avoid vague terms (e.g., injury) so you can better assess severity </li><li>Consider harm to both the user and patient</li><li> Consider “harm” to property or environment if such harm impacts individual’s health or medical care </li><li> Identify all possible “realistic” harms, but be balanced. For example, consider if harm is only due to abnormal use </li><li> Assume that there will be a master list of harms for a given product that can be shared across risk management activiti </li></ul>"
+      ]
+    },
+    "Risk Pre-mitigation": {
+      "Definition": "Pre-mitigation ratings are the severity and probability ratings defined before implementing risk mitigations. This will be based on a risk matrix that includes ratings for the severity of the harm, vs the probability of the harm.",
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> Severity is a measure of the possible harmful consequence that a hazard could cause. Some tips to consider when determining a severity rating: </p><ul class='text-regular-large table-container--content pl-30'> <li> Seek input from clinical experts to help determine appropriate severity ratings associated with harms </li><li> Ensure that each level of severity (e.g., Catastrophic, Negligible) has a clear definition </li><li>Rate similar harms consistently</li><li>Use common terminology (e.g., align with FDA)</li><li> Explicitly indicate when a rating is pre-mitigated or post-mitigated </li></ul> <p class='text-regular-large tips--content'> Probability is an estimate of the frequency of a harmful event. Some tips to consider when determining a probability rating: </p><ul class='text-regular-large table-container--content pl-30'> <li> Seek input from all stakeholders and any available data sources to help determine realistic probability ranges </li><li> Ensure that each level of probability (e.g., Improbable, Probable) has a clear definition </li><li> Probability does not affect whether a task is considered a “critical task” (I.e., Do not exempt task from validation based on likelihood) </li><li> Probability can be very useful for evaluating residual risk analysis </li></ul>"
+      ],
+      "Tablecontent": [
+        "<h3 class='text-subtitle-1'>Sample Severity and Probability scales</h3> <div class='table_container'> <img src='/static/images/icons/useErrorWizardTool/Risk_Pre_mitigation.svg'/> </div>"
+      ]
+    },
+    "Critical task?": {
+      "Definition": " A task may be critical or non-critical depending on its associated harm and severity of harm.",
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> The FDA's CDRH, which regulates medical devices, defines a critical task as <em >“A user task which, if performed incorrectly or not performed at all, would or could cause serious harm to the patient or user, where harm is defined to include compromised medical care.”</em > </p><p class='text-regular-large tips--content'> The FDA's CDER, which regulates drug-device combination products, defines a critical task in a near-verbatim manner, with one important exception: the exclusion of the word “serious” (<em >“A user task which, if performed incorrectly or not performed at all, would or could cause harm to the patient or user, where harm is defined to include compromised medical care.”</em >). </p><p class='text-regular-large tips--content'> Base solely on potential Harm Severity (as opposed to importance of task). Be prepared to identify all critical tasks in HF validation protocol and HFE Report. </p>"
+      ]
+    },
+    "Risk mitigations": {
+      "Definition": "A risk mitigation is a design change that is implemented to reduce risk (i.e., to try to prevent use errors). When identifying risk mitigations, consider the use error as well as its potential causes.",
+      "SampleUseNumbers": [
+        "Retractable needle",
+        "Shape-coded connectors",
+        "Confirmation screen"
+      ],
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> Risk mitigations are sometimes referred to as risk “control measures,” and are sometimes synonymous with design requirements. However, requirements should also be tracked in dedicated documentation (e.g., User Interface Specification). Risk mitigations can be concise, but should include enough detail to describe the specific user interface feature that mitigates the use error. </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> Shape-coded connectors (on IV ports) </li><li> <span class='text-required fw-700'>Bad:</span> New connector design </li></ul> <p class='text-regular-large tips--content'> Some additional tips to consider when identifying risk mitigations: </p><ul class='text-regular-large table-container--content pl-30'> <li> Identify mitigations at least for all unacceptable risks; ideally for all risks </li><li> Identify all mitigations for each individual risk; take credit for all design mitigations </li><li> Present mitigations according to a hierarchy of effectiveness <ul class='pl-30'> <li> 1<sup>st</sup>. Changing the design so the error is no longer possible </li><li> 2<sup>nd</sup>. Design feature(s) that guards against the error or harm </li><li>3<sup>rd</sup>. Information for safety</li></ul> </li><li> Mitigation should address root cause of use error and/or exposure to hazard </li><li> If possible, state in the form of requirements; avoid vagueness </li><li> Identify specifically what information for safety mitigations will say/do </li><li> When possible, provide traceability to requirements and specifications documents </li></ul>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Example use errors",
+          "placeholder": "Select Example use errors",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select Example use errors",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector : User reattaches cap before use",
+              "key": "Autoinjector : User reattaches cap before use"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe : User reuses syringe",
+              "key": "Prefilled Syringe : User reuses syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer Use error : User uses Aerosol Head intended for use with another drug.",
+              "key": "Nebulizer Use error : User uses Aerosol Head intended for use with another drug."
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter mitigations",
+          "subtitle": "Consider design changes or features that could reduce the risk associated with the selected use error.",
+          "placeholder": "Enter mitigations"
+        },
+        "answersContent": {
+          "Autoinjector: User reattaches cap before use": [
+            "Cap design does not allow cap to secure back in place",
+            "Needle guard extends after cap removal (making it noticeable that cap no longer covers entire needle guard)",
+            "Warning in IFU to not reattach cap after removal"
+          ],
+          "Prefilled Syringe: User reuses syringe": [
+            "Syringe contains only one dose",
+            "Syringe include needle guard that retracts over needle after first use",
+            "Medication window area and plunger are clearly visible during use (to help ensure user see that syringe is empty after one dose)",
+            "Labeling clearly states that product is for single dose, and warns not to reuse syringe "
+          ],
+          "Nebulizer Use error: User uses Aerosol Head intended for use with another drug.": [
+            "Shape-coded aerosol head connection (for specific treatment)",
+            "Color-coded label on aerosol head indicating type of treatment",
+            "Warning in IFU to confirm use of correct aerosol head"
+          ]
+        }
+      }
+    },
+    "Risk Post-mitigation": {
+      "Definition": "Post-mitigation ratings are the severity and probability ratings defined after implementing risk mitigations. This will be based on a risk matrix that includes ratings for the severity of the harm, vs the probability of the harm. Post-mitigation ratings use the same levels and definitions as those used during the Pre-mitigation rating. However, ideally the severity and probability ratings will be considered lower or no longer a risk once a mitigation is implemented in the design.",
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> Severity is a measure of the possible harmful consequence that a hazard could cause. Some tips to consider when determining a severity rating: </p><ul class='text-regular-large table-container--content pl-30'> <li> Seek input from clinical experts to help determine appropriate severity ratings associated with harms </li><li> Ensure that each level of severity (e.g., Catastrophic, Negligible) has a clear definition </li><li>Rate similar harms consistently</li><li>Use common terminology (e.g., align with FDA)</li><li> Explicitly indicate when a rating is pre-mitigated or post-mitigated </li></ul> <p class='text-regular-large tips--content'> Probability is an estimate of the frequency of a harmful event. Some tips to consider when determining a probability rating: </p><ul class='text-regular-large table-container--content pl-30'> <li> Seek input from all stakeholders and any available data sources to help determine realistic probability ranges </li><li> Ensure that each level of probability (e.g., Improbable, Probable) has a clear definition </li><li> Probability does not affect whether a task is considered a “critical task” (I.e., Do not exempt task from validation based on likelihood) </li><li> Probability can be very useful for evaluating residual risk analysis </li></ul>"
+      ],
+      "Tablecontent": [
+        "<h3 class='text-subtitle-1'>Sample Severity and Probability scales</h3> <div class='table_container'> <img src='/static/images/icons/useErrorWizardTool/Risk_Pre_mitigation.svg'/> </div>"
+      ]
+    }
+  },
+  "2022 FDA template": {
+    "Risk ID": {
+      "Definition": "A risk identification number is a unique identifier for each row in the use-related risk analysis.",
+      "SampleUseNumbers": ["URRA001", "URRA002", "URRA003"],
+      "Tips": "It is important for each row to have a unique risk identification number:",
+      "Tablecontent": [
+        "<div class='tables_container'> <div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> </div><table> <tr> <th class='text-button-label'>Risk ID</th> <th class='text-button-label'>Use scenario</th> <th class='text-button-label'>Task</th> <th class='text-button-label'>Use error </th> </tr><tr> <td class='sort-label green-4'>URRA010</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Remove needle cap</td><td class='sort-label'>User discards needle cap in trash</td></tr><tr> <td class='sort-label green-4'>URRA011</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Discard needle cap in sharps container</td><td class='sort-label'>User re-caps needle</td></tr><tr> <td class='sort-label green-4'>URRA012</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Discard needle cap in sharps container</td><td class='sort-label'>User does not discard needle cap</td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><table> <tr> <th class='text-button-label'>Risk ID</th> <th class='text-button-label'>Use scenario</th> <th class='text-button-label'>Task</th> <th class='text-button-label'>Use error </th> </tr><tr> <td class='sort-label text-required'>URRA010</td><td class='sort-label'>Administer injection</td><td class='sort-label'>Discard needle cap in sharps container</td><td style='padding: 0'><table style='width:100%'><tr><td class='sort-label'>User discards needle cap in trash</td></tr><tr><td class='sort-label'>User re-caps needle</td></tr><tr><td class='sort-label'>User does not discard needle cap</td></tr></table></td> </tr></table> </div><p class='text-regular-large table-container--content mt-20'>Each row should have a unique risk number because some tasks have multiple use errors and some use errors have multiple harms, and each needs its own identifier. You can also give each task a task identification number, but this should be distinct from the risk identification number.</p></div>"
+      ]
+    },
+    "Tasks": {
+      "Definition": "A task is a specific action the user completes, or a decision a user must make, to accomplish the use scenario.",
+      "SampleUseNumbers": [
+        "Press power button",
+        "Insert needle",
+        "Confirm device is not expired"
+      ],
+      "Tips": "A URRA should include all tasks as distinct actions that should be written as a single action. For example:",
+      "Tablecontent": [
+        "<div class='tables_container'> <div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> <span class='ml-5' >Tasks are broken down into single distinct actions.</span > </div><table> <tr> <th class='text-button-label' style='width: 110px'>Risk ID</th> <th class='text-button-label' style='width: 400px'> Use scenario </th> <th class='text-button-label' style='width: 261px'>Task</th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press logbook button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Select logbook entry</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press edit button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press edit button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press Save button</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Edit logbook entry</td><td class='sort-label'>Press Confirm button</td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><p class='text-regular-large task-table-text'> “Task” is too broad. It contains multiple steps or actions. </p><table> <tr> <th class='text-button-label' style='width: 110px'>Risk ID</th> <th class='text-button-label' style='width: 400px'> Use scenario </th> <th class='text-button-label' style='width: 261px'>Task</th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Set up and pair device</td><td class='sort-label'>Open logbook</td></tr><tr> <td class='sort-label'></td><td class='sort-label'>Administer dose</td><td class='sort-label'>Edit logbook entry</td></tr></table> </div><p class='text-regular-large table-container--content mt-20'> Some additional tips to consider when writing tasks: </p><ul class='text-regular-large table-container--content pl-30'> <li>Avoid combining tasks in single row</li><li>Avoid compounding tasks when possible (e.g., twist / pull)</li><li> Limit repetition of tasks when possible (assuming they are identical actions). For example, consider using a reference to earlier instance to maintain complete task flow. This is because as a URRA is iterated, it can be difficult to ensure consistency across all instances. However, you <em><span class='fw-600'>should</span></em> repeat task if associated use error and risk are different </li><li>Include optional tasks, not just those that are mandatory</li><li> Include troubleshooting and infrequent tasks (e.g., respond to alarm, notification) </li><li>Generally, referencing the IFU is not considered a “task”</li><li> In some cases, a decision might occur during a workflow that will determine which next step is taken. Consider if this is an actual task or simply a clinical judgement. </li></ul> </div>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Select product type",
+          "placeholder": "Select product type",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select product type",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector",
+              "key": "Autoinjector"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe",
+              "key": "Prefilled Syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer",
+              "key": "Nebulizer"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter tasks",
+          "subtitle": "Consider the tasks that could exist with a product and its use.",
+          "placeholder": "Enter task"
+        },
+        "answersContent": {
+          "Autoinjector": [
+            "Choose injection site",
+            "Expose bare skin",
+            "Clean injection site"
+          ],
+          "Prefilled Syringe": [
+            "Choose injection site",
+            "Expose bare skin",
+            "Clean injection site"
+          ],
+
+          "Nebulizer": [
+            "Plug power cord into wall outlet",
+            "Check aerosol head's expiration date",
+            "Assemble aerosol head "
+          ]
+        }
+      }
+    },
+    "Use errors": {
+      "Definition": "A use error occurs when a user performs a task incorrectly or does not perform a task.",
+      "SampleUseNumbers": [
+        "User did not open clamp",
+        "User injected expired medication",
+        "User used incorrect disinfectant"
+      ],
+      "Tips": "Ensure that the URRA includes a comprehensive list of use errors, even if they are unlikely or have been designed out. In most cases, each task will have multiple associated use errors because, at minimum, users could make an error of omission (inaction) or commission (incorrect action) at each task. The benefit of describing use errors with this level of detail is that it makes it easier to envision the right risk mitigations, which might differ for different use errors. For example, the risk mitigation for “not fully inserting the test strip” might be an alert indicating when the test strip is only partially inserted. In contrast, the risk mitigation for “inserting the test strip backwards” might be printing an arrow on the test strip to indicate which end the user should insert into the meter.",
+      "Tablecontent": [
+        "<div class='tables__container'> <div class='table_container'> <div class='d-flex align-items-center'> <img src='/static/images/icons/useErrorWizardTool/green_tick_mark.svg'/> <h3 class='green-4 text-subtitle-1 mb-0 mt-0 ml-10'>Good:</h3> </div><h3 class='ml-5 text-regular-large task-table-text'> List of errors includes both errors of omission (inaction) and errors of commission (incorrect action). </h3> <table> <tr> <th class='text-button-label' style='width: 105px'>Risk ID</th> <th class='text-button-label' style='width: 222px'> Use scenario </th> <th class='text-button-label' style='width: 222px'>Task</th> <th class='text-button-label' style='width: 222px'> Possible Use Errors </th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Prepare blood glucose meter</td><td class='sort-label'>Insert test strip</td><td class='sort-label'>User did not insert test strip</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted test strip backwards</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted test strip updside down</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User did not fully insert strip</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted incompatible test strip</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>User inserted used test strip</td></tr></table> </div><div class='table_container'> <div class='d-flex align-items-center mb-15'> <img src='/static/images/icons/useErrorWizardTool/red_cross_mark.svg'/> <h3 class='text-required text-subtitle-1 mb-0 mt-0 ml-10'>Bad:</h3> </div><p class='text-regular-large task-table-text'> Only use errors of omission are included. Missing errors of comission. </p><table> <tr> <th class='text-button-label' style='width: 105px'>Risk ID</th> <th class='text-button-label' style='width: 222px'> Use scenario </th> <th class='text-button-label' style='width: 222px'>Task</th> <th class='text-button-label' style='width: 222px'> Possible Use Errors </th> </tr><tr> <td class='sort-label'></td><td class='sort-label'>Prepare blood glucose meter</td><td class='sort-label'>Select correct package</td><td class='sort-label'>User does not select a package</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>Open package</td><td class='sort-label'>User does not open package</td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>Remove device from package</td><td class='sort-label'> User does not remove device from pacakage </td></tr><tr> <td class='sort-label'></td><td class='sort-label'></td><td class='sort-label'>Power on device</td><td class='sort-label'>User does not power on device</td></tr></table> </div><p class='text-regular-large table-container--content mt-20'> Some additional tips to consider when writing use errors: </p><p class='text-regular-large table-container--content mt-20'> The use error should include the user. Start with ‘user’ then the action/lack of action. For example: </p><ul class='text-regular-large table-container--content pl-30'> <li><u>User</u> did not connect cable,</li><li><u>User</u> did not change default setting</li><li><u>User</u> selected incorrect drug,</li><li><u>User</u> inserted battery upside down.</li></ul> <p class='text-regular-large table-container--content mt-20'> Use errors should make clear what the incorrect action or lack of action is. For example: </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> User set the reminder volume too low. </li><li> <span class='text-required fw-700'>Bad:</span> Reminder control is in the off state </li><li> <span class='green-4 fw-700'>Good:</span> User does not read the IFU </li><li> <span class='text-required fw-700'>Bad:</span> User’s performance does not align with instructions for use. Note: Include failure to reference or inability to follow steps in IFU if <em><span class='fw-700'>required</span></em> by task </li></ul> <p class='text-regular-large table-container--content mt-20'> Use errors should be written as actions: </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> User does not press button. </li><li> <span class='text-required fw-700'>Bad:</span> User does not know how to press button. Note: This is not an action, but rather implies how the user might cognitively understand the UI feature. Although not a use error, this could be a potential root cause for the error, and therefore a valuable input into potential mitigations and design requirements. </li></ul> <p class='text-regular-large table-container--content mt-20'> Use errors should be written from the user’s perspective: </p><ul class='text-regular-large table-container--content pl-30'> <li> Keep a standard format, such as “The user did [not]{insert action}” </li></ul> </div>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Select example task",
+          "placeholder": "Select example task",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select example task",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector : Remove cap",
+              "key": "Autoinjector : Remove cap"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe : Position syringe in dominant hand",
+              "key": "Prefilled Syringe : Position syringe in dominant hand"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer : Assemble aerosol head",
+              "key": "Nebulizer : Assemble aerosol head"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter use errors",
+          "subtitle": "Consider the use errors that occur while attempting the selected task.",
+          "placeholder": "Enter use errors"
+        },
+        "answersContent": {
+          "Autoinjector: Remove cap": [
+            "User is unable to apply the required force to remove cap",
+            "User removes the cap using a sharp tool",
+            "User accidentally fires the device during cap removal",
+            "User drops the device after removing the cap",
+            "User uses a device with the cap removed for > 15 minutes before use",
+            "User reattaches cap before use and fires device",
+            "User reattaches cap before use"
+          ],
+          "Prefilled Syringe: Position syringe in dominant hand": [
+            "User touches products in sharps bin",
+            "User drops product when trying to re-position",
+            "User sticks needle in flesh when repositioning product",
+            "User touches non-sterile surface with needle during product handling",
+            "User accidentally presses plunger",
+            "User touches needle against surface - Needle is bent/damaged"
+          ],
+
+          "Nebulizer: Assemble aerosol head": [
+            "User uses aerosol head intended for use with another drug",
+            "User inserts aerosol head upside down",
+            "User inserts aerosol head incorrectly",
+            "User cannot determine how to assemble aerosol head",
+            "User touches aerosol head center"
+          ]
+        }
+      }
+    },
+    "Hazards": {
+      "Definition": "A hazard is a potential source of harm.",
+      "SampleUseNumbers": [
+        "Exposed needle",
+        "Non-sterile material",
+        "Expired drug"
+      ],
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> Hazards should be written simply (I.e., using a couple of words). As a <em>source</em> of harm, the hazard should be a <em>noun</em>. However, use an <em>adjective</em> to describe what makes the <em>noun</em> a hazard. </p><ul class='text-regular-large table-container--content pl-30'> <li><span class='green-4 fw-700'>Good:</span> Damaged cable</li><li><span class='text-required fw-700'>Bad:</span> Cable</li></ul> <p class='text-regular-large tips--content'> Some additional tips to consider when identifying hazards: </p><ul class='text-regular-large table-container--content pl-30'> <li> Avoid repeating the harm. For example, <em>infection</em> is typically not a hazard. It is a harm caused by a hazard (e.g., non-sterile needle). </li><li> Identify hazards from different categories related to your product. For example, hazards might be chemical, biological, mechanical, functional, or related to energy transfer. </li></ul>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Select product",
+          "placeholder": "Select hazard",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select hazard",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector",
+              "key": "Autoinjector"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe",
+              "key": "Prefilled Syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer",
+              "key": "Nebulizer"
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter hazards",
+          "subtitle": "Consider the Hazards (potential source of harm) that could exist with the selected product and its use.",
+          "placeholder": "Enter hazard"
+        },
+        "answersContent": {
+          "Autoinjector": [
+            "Degraded drug",
+            "Sharp needle",
+            "Unprescribed drug",
+            "Non-functional device",
+            "Lack of access to drug",
+            "Expired drug",
+            "Unprescribed drug",
+            "Damaged device",
+            "Contaminants",
+            "Microbial contaminants/Infectious agent",
+            "Incorrect injection site"
+          ],
+          "Prefilled Syringe": [
+            "Degraded drug",
+            "Sharp needle",
+            "Unprescribed drug",
+            "Lack of access to drug",
+            "Expired drug",
+            "Unprescribed drug",
+            "Damaged device",
+            "Microbial contaminants/Infectious agent",
+            "Incorrect injection site"
+          ],
+
+          "Nebulizer": [
+            "Missing component ",
+            "Exposed wire ",
+            "Broken power cord ",
+            "Reduced therapeutic treatment",
+            "Biological contamination",
+            "No battery power",
+            "Voltage",
+            "Damaged device",
+            "Unprescribed drug"
+          ]
+        }
+      }
+    },
+    "Harms": {
+      "Definition": "A harm is a physical injury or damage to the health of a person. A use error causes harm.",
+      "SampleUseNumbers": ["Local infection", "Burn", "Delay in therapy"],
+      "Tips": "Harms should be brief and describe a condition that resulted from exposure to the hazard during the hazardous situation.",
+      "Tablecontent": [
+        "<ul class='text-regular-large table-container--content pl-30'> <li><span class='green-4 fw-700'>Good:</span> Local infection</li><li> <span class='text-required fw-700'>Bad:</span> Scraped against edge </li></ul> <p class='text-regular-large tips--content'> Some additional tips to consider when identifying harms: </p> <ul class='text-regular-large table-container--content pl-30'> <li> Be specific; avoid vague terms (e.g., injury) so you can better assess severity </li><li>Consider harm to both the user and patient</li><li> Consider “harm” to property or environment if such harm impacts individual’s health or medical care </li><li> Identify all possible “realistic” harms, but be balanced. For example, consider if harm is only due to abnormal use </li><li> Assume that there will be a master list of harms for a given product that can be shared across risk management activiti </li></ul>"
+      ]
+    },
+    "Severity of harm": {
+      "Definition": "Severity is a measure of the possible harmful consequence that a hazard could cause. This will be based on a risk matrix that includes ratings for the severity of the harm, and might also include the probability of the harm. However, for the purposes of submitting human factors data to the FDA, FDA requests only the severity of the potential harm caused by the use error. See the definition for “Critical task” for more specific information.",
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'>Severity is a measure of the possible harmful consequence that a hazard could cause. Some tips to consider when determining a severity rating: </p><ul class='text-regular-large table-container--content pl-30'> <li> Seek input from clinical experts to help determine appropriate severity ratings associated with harms </li><li> Ensure that each level of severity (e.g., Catastrophic, Negligible) has a clear definition </li><li>Rate similar harms consistently</li><li>Use common terminology (e.g., align with FDA)</li><li> Explicitly indicate when a rating is pre-mitigated or post-mitigated </li></ul>"
+      ],
+      "Tablecontent": [
+        "<h3 class='text-subtitle-1'>Sample Severity scale</h3> <div class='table_container'> <img src='/static/images/icons/useErrorWizardTool/Severity.svg'/> </div>"
+      ]
+    },
+    "Critical task?": {
+      "Definition": " A task may be critical or non-critical depending on its associated harm and severity of harm.",
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> The FDA's CDRH, which regulates medical devices, defines a critical task as <em >“A user task which, if performed incorrectly or not performed at all, would or could cause serious harm to the patient or user, where harm is defined to include compromised medical care.”</em > </p><p class='text-regular-large tips--content'> The FDA's CDER, which regulates drug-device combination products, defines a critical task in a near-verbatim manner, with one important exception: the exclusion of the word “serious” (<em >“A user task which, if performed incorrectly or not performed at all, would or could cause harm to the patient or user, where harm is defined to include compromised medical care.”</em >). </p><p class='text-regular-large tips--content'> Base solely on potential Harm Severity (as opposed to importance of task). Be prepared to identify all critical tasks in HF validation protocol and HFE Report. </p>"
+      ]
+    },
+    "Risk mitigations": {
+      "Definition": "A risk mitigation is a design change that is implemented to reduce risk (i.e., to try to prevent use errors). When identifying risk mitigations, consider the use error as well as its potential causes.",
+      "SampleUseNumbers": [
+        "Retractable needle",
+        "Shape-coded connectors",
+        "Confirmation screen"
+      ],
+      "Tipscontent": [
+        "<p class='text-regular-large tips--content'> Risk mitigations are sometimes referred to as risk “control measures,” and are sometimes synonymous with design requirements. However, requirements should also be tracked in dedicated documentation (e.g., User Interface Specification). Risk mitigations can be concise, but should include enough detail to describe the specific user interface feature that mitigates the use error. </p><ul class='text-regular-large table-container--content pl-30'> <li> <span class='green-4 fw-700'>Good:</span> Shape-coded connectors (on IV ports) </li><li> <span class='text-required fw-700'>Bad:</span> New connector design </li></ul> <p class='text-regular-large tips--content'> Some additional tips to consider when identifying risk mitigations: </p><ul class='text-regular-large table-container--content pl-30'> <li> Identify mitigations at least for all unacceptable risks; ideally for all risks </li><li> Identify all mitigations for each individual risk; take credit for all design mitigations </li><li> Present mitigations according to a hierarchy of effectiveness <ul class='pl-30'> <li> 1<sup>st</sup>. Changing the design so the error is no longer possible </li><li> 2<sup>nd</sup>. Design feature(s) that guards against the error or harm </li><li>3<sup>rd</sup>. Information for safety</li></ul> </li><li> Mitigation should address root cause of use error and/or exposure to hazard </li><li> If possible, state in the form of requirements; avoid vagueness </li><li> Identify specifically what information for safety mitigations will say/do </li><li> When possible, provide traceability to requirements and specifications documents </li></ul>"
+      ],
+      "Practice": {
+        "dropdownContent": {
+          "heading": "Example use errors",
+          "placeholder": "Select Example use errors",
+          "dropdownOptions": [
+            {
+              "id": 0,
+              "itemName": "Select Example use errors",
+              "key": "all"
+            },
+            {
+              "id": 1,
+              "itemName": "Autoinjector : User reattaches cap before use",
+              "key": "Autoinjector : User reattaches cap before use"
+            },
+            {
+              "id": 2,
+              "itemName": "Prefilled Syringe : User reuses syringe",
+              "key": "Prefilled Syringe : User reuses syringe"
+            },
+            {
+              "id": 3,
+              "itemName": "Nebulizer Use error : User uses Aerosol Head intended for use with another drug.",
+              "key": "Nebulizer Use error : User uses Aerosol Head intended for use with another drug."
+            }
+          ]
+        },
+        "textFieldContent": {
+          "heading": "Enter mitigations",
+          "subtitle": "Consider design changes or features that could reduce the risk associated with the selected use error.",
+          "placeholder": "Enter mitigations"
+        },
+        "answersContent": {
+          "Autoinjector: User reattaches cap before use": [
+            "Cap design does not allow cap to secure back in place",
+            "Needle guard extends after cap removal (making it noticeable that cap no longer covers entire needle guard)",
+            "Warning in IFU to not reattach cap after removal"
+          ],
+          "Prefilled Syringe: User reuses syringe": [
+            "Syringe contains only one dose",
+            "Syringe include needle guard that retracts over needle after first use",
+            "Medication window area and plunger are clearly visible during use (to help ensure user see that syringe is empty after one dose)",
+            "Labeling clearly states that product is for single dose, and warns not to reuse syringe "
+          ],
+          "Nebulizer Use error: User uses Aerosol Head intended for use with another drug.": [
+            "Shape-coded aerosol head connection (for specific treatment)",
+            "Color-coded label on aerosol head indicating type of treatment",
+            "Warning in IFU to confirm use of correct aerosol head"
+          ]
+        }
+      }
+    }
+  }
+}

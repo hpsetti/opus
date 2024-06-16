@@ -1,0 +1,1 @@
+.opus-dots{display:flex;column-gap:8px}.opus-dot{width:8px;height:8px;border-radius:50%;display:inline-block;float:none;background:transparent}.opus-dot.blue{border:.5px solid #0b3c61}.opus-dot.white{border:.5px solid #fff}.opus-dot.active.blue{background:#0b3c61}.opus-dot.active.white{background:#fff}

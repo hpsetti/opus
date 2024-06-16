@@ -1,0 +1,1 @@
+import{g as a}from"./index-BlMJxPGQ.js";async function r(){let o=[];return await a.get("https://backend.opus.emergobyul.com/services/country_info").then(t=>{t.status===200&&t.data&&(o=t.data,localStorage.setItem("countryList",JSON.stringify(o)))}).catch(t=>console.log("get country python api error",t)),o}export{r as g};

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "itemName": "Select Product Code",
+    "coursesCount": 0,
+    "key": "all"
+  },
+  {
+    "id": 1,
+    "itemName": "CCC",
+    "description": "CCC – Analyzer, Gas, Carbon-Dioxide, Partial Pressure, Blood-Phase, Indwelling",
+    "key": "CCC"
+  },
+  {
+    "id": 2,
+    "itemName": "CCE",
+    "description": "CCE – Analyzer, Gas, Oxygen, Partial Pressure, Blood-Phase, Indwelling",
+    "key": "CCE"
+  },
+  {
+    "id": 3,
+    "itemName": "DRK",
+    "description": "DRK – Dc-Defibrillator, High Energy, (Including Paddles)",
+    "key": "DRK"
+  },
+  {
+    "id": 4,
+    "itemName": "FMF",
+    "description": "FMF – Syringe, Piston",
+    "key": "FMF"
+  },
+  {
+    "id": 5,
+    "itemName": "FRN",
+    "description": "FRN – Pump, Infusion",
+    "key": "FRN"
+  },
+  {
+    "id": 6,
+    "itemName": "GBL",
+    "description": "GBL – Catheter, Ureteral, General & Plastic Surgery",
+    "key": "GBL"
+  },
+  {
+    "id": 7,
+    "itemName": "KPE",
+    "description": "KPE – Container, I.V.",
+    "key": "KPE"
+  },
+  {
+    "id": 8,
+    "itemName": "KSR",
+    "description": "KSR – Container, Empty, For Collection & Processing Of Blood & Blood Components",
+    "key": "KSR"
+  },
+  {
+    "id": 9,
+    "itemName": "LJE",
+    "description": "LJE – Catheter, Nephrostomy",
+    "key": "LJE"
+  },
+  {
+    "id": 10,
+    "itemName": "LPB",
+    "description": "LPB – Cardiac Ablation Percutaneous Catheter",
+    "key": "LPB"
+  },
+  {
+    "id": 11,
+    "itemName": "MAD",
+    "description": "MAD – Catheter, Percutaneous (Valvuloplasty)",
+    "key": "MAD"
+  },
+  {
+    "id": 12,
+    "itemName": "MCX",
+    "description": "MCX – Catheter, Coronary, Atherectomy",
+    "key": "MCX"
+  },
+  {
+    "id": 13,
+    "itemName": "MKJ",
+    "description": "MKJ – Automated External Defibrillators (Non-Wearable)",
+    "key": "MKJ"
+  },
+  {
+    "id": 14,
+    "itemName": "MVK",
+    "description": "MVK – Wearable Automated External Defibrillator",
+    "key": "MVK"
+  },
+  {
+    "id": 15,
+    "itemName": "NRZ",
+    "description": "NRZ – Ablation System, High Intensity Focused Ultrasound (Hifu), Mr-Guided",
+    "key": "NRZ"
+  },
+  {
+    "id": 16,
+    "itemName": "NSA",
+    "description": "NSA – Over-The-Counter Automated External Defibrillator",
+    "key": "NSA"
+  },
+  {
+    "id": 17,
+    "itemName": "NSC",
+    "description": "NSC – Injector, Pen",
+    "key": "NSC"
+  },
+  {
+    "id": 18,
+    "itemName": "PAV",
+    "description": "PAV – Catheter, Neuro-Vasculature, Occluding Balloon",
+    "key": "PAV"
+  },
+  {
+    "id": 19,
+    "itemName": "PZC",
+    "description": "PZC – Ablation System, High Intensity Focus Ultrasound (Hifu), Soft Tissue",
+    "key": "PZC"
+  }
+]

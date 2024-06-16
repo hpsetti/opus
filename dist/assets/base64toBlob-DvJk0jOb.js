@@ -1,0 +1,1 @@
+function h(c,l="",r=512){const n=atob(c),b=[];for(let t=0;t<n.length;t+=r){const o=n.slice(t,t+r),s=new Array(o.length);for(let e=0;e<o.length;e+=1)s[e]=o.charCodeAt(e);const a=new Uint8Array(s);b.push(a)}return new Blob(b,{type:l})}export{h as b};

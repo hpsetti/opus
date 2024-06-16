@@ -1,0 +1,1 @@
+import{_ as t,c as o,b as n,r as s,o as a}from"./index-BlMJxPGQ.js";const c={props:["userId"],data(){return{}}};function u(p,_,e,d,i,l){const r=s("router-view");return a(),o("div",null,[n(r,{userId:e.userId},null,8,["userId"])])}const m=t(c,[["render",u]]);export{m as default};

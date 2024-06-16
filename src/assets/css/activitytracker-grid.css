@@ -1,0 +1,261 @@
+ @media screen and (max-width: 767px){
+   .xs-hide{
+     display: hidden;
+   }
+   .first_table> .table{
+    width: 898px;
+    max-width: unset;
+   }
+   .first_table{
+    overflow-x: hidden;
+     width: 100%;
+   }
+   .data_table{
+     overflow-x: auto;
+     width: calc(100% - 130px);
+   }
+   .shadow_col{
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.1) inset;
+   }
+   .activity-tracker-table.table > thead:first-child > tr:first-child > th{
+     padding-left: 8px;
+   }
+   .activity-tracker-table.table > tbody > tr > td:first-child{
+    padding-left: 8px!important;
+  }
+ }
+ .width_16{
+   width: 16.6%;
+ }
+ .wd-70{
+   width: 70px !important;
+ }
+ .first_table{
+  position: relative;
+ }
+ .spinnerTop{
+  z-index: 3!important;
+  }
+ .data_table{
+   background: white;
+   position: absolute;
+   top: 0;
+   left: 128px;
+   z-index: 2;
+   padding-right: 15px;
+ }
+
+ .table_first{
+    width: 130px;
+    vertical-align: top;
+  }
+  .activity-tracker-table{
+    table-layout: fixed;
+  }
+  .activitytrackermenu.export-menu:after {
+    visibility: visible;
+    box-shadow: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+  }
+  .center {
+    text-align: center;
+  }
+  .fa.menu-dots {
+    cursor: pointer;
+    font-size: 22px;
+  }
+  th.checkbox-cell{
+    height: 45px;
+  }
+  .activity-tracker-table.table > thead:first-child > tr:first-child > th {
+    color: #0b3c61;
+    font-size: 16px;
+  }
+  .table_first > .table> thead tr th:first-child,
+  .table_first > .table> tbody tr td:first-child {
+    width: 70px;
+  }
+  .activity-tracker-table.table> thead tr th {
+    height: 52px;
+  }
+  .activity-tracker-table.table> tbody tr td {
+    height: 44px;
+  }
+  .table_second{
+    vertical-align: top;
+    padding: 0;
+  }
+  .checkbox-cell {
+    width: 60px;
+    text-align: center;
+  }
+  .activity-tracker-table.table thead {
+    background-color: white;
+  }
+  .menu-td {
+    text-align: right;
+  }
+  .activity-tracker-table.table > tbody > tr:nth-child(even) {
+    background-color: rgba(103, 177, 226, 0.35);
+    border-top: 0.5px solid #bdbdbd;
+    border-bottom: 0.5px solid #bdbdbd;
+  }
+  .activity-tracker-table.table > tbody > tr:nth-child(even).on-hover {
+    background-color: rgba(103, 177, 226, 0.35);
+  }
+  tbody > tr.on-hover {
+    background-color: rgba(103, 177, 226, 0.35);
+  }
+  .activity-tracker-table.table > thead > tr > th {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0b3c61;
+    border-bottom: 0.5px dashed #bdbdbd;
+    vertical-align: middle;
+    padding: 10px 10px 10px 3px;
+    width: 100%;
+  }
+  .activity-tracker-table.table > tbody > tr > td {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 10px 10px 10px 3px !important;
+  }
+  .checkbox-cell>.checkbox label:after, .checkbox label:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .activityTracker-checkbox > .checkbox .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #0b3c61;
+    border-radius: 1px;
+    width: 15px;
+    height: 15px;
+  }
+  
+  .activityTracker-checkbox > .checkbox .cr .cr-icon {
+    position: absolute;
+    font-size: 10px;
+    line-height: 0;
+    top: 48%;
+    left: 8%;
+  }
+  .activityTracker-checkbox > .checkbox label input[type="checkbox"], .checkbox label input[type="checkbox"] {
+    display: none;
+  }
+  .activityTracker-checkbox > .checkbox label input[type="checkbox"] + .cr > .cr-icon {
+    opacity: 0;
+  }
+  .activityTracker-checkbox > .checkbox label input[type="checkbox"]:checked + .cr {
+    background-color: #0b3c61;
+  }
+  
+  .activityTracker-checkbox > .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon {
+    opacity: 1;
+    color: #fff;
+  }
+  .activityTracker-checkbox > .checkbox label input[type="checkbox"]:disabled + .cr {
+    opacity: 0.5;
+  }
+  .activityTracker-checkbox > .checkbox label{
+    padding-left: 0;
+  }
+  .activityTracker-checkbox > .checkbox{
+    margin: 0;
+    text-align: center;
+    display: inline;
+    vertical-align: sub;
+  }
+  .preferences-columns .checkbox .cr {
+    top: 2px;
+    margin-right: 5px;
+  }
+  .custom-checkbox-class {
+    left: 40px;
+    width: 0px;
+    height: 0px;
+    top: 0px;
+  }
+  .checkmark {
+    position: relative;
+    display: inline-block;
+    margin: 3px 0px -4px -7px;
+    background-color: white;
+  }
+  table input[type="checkbox"].custom-checkbox-class {
+    position: fixed;
+  }
+  .dropdown-column {
+    width: 45px;
+    text-align: right;
+    padding-right:10px !important;
+  }
+  .activitytrackermenu.dropdown-menu.pull-left {
+    right: 0px;
+    left: auto;
+    top: 25px;
+    min-width: 200px;
+  }
+  ul.activitytrackermenu.dropdown-menu.pull-left li {
+    padding-left: 10px;
+    padding-bottom: 5px;
+  }
+  .dropdown.angle.open::before {
+    display: unset;
+    position: absolute;
+    pointer-events: none;
+    content: "";
+    visibility: visible;
+    transform: rotate(45deg);
+    width: 0.6em;
+    height: 0.6em;
+    background: #fff;
+    z-index: 9999;
+    right: 10px;
+    top: 24px;
+    box-shadow: -1px -1px 1px 1px rgba(41, 38, 38, 0.15);
+    -webkit-transition: all 0.5s ease-in 0s;
+    transition: all 0.5s ease-in 0s;
+  }
+  @media only screen and (max-width: 767px) {
+    .xs-pr-0{
+      padding-right: 0px!important;
+    }
+    .activity-tracker-table.dataList {
+      width: 768px;
+      max-width: unset;
+    }
+    .table_first > .table{
+      position: relative;
+      box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.1);
+    }
+    .table-wrapper > .table.dataList > thead tr th:first-child,
+    .table-wrapper > .table.dataList > tbody tr td:first-child {
+      padding-left: 10px!important;
+    }
+    .table-wrapper {
+      overflow: scroll;
+    }
+    .main-table{ 
+      table-layout: fixed;
+    }
+    .activity-tracker-table.table-responsive {
+      border: none;
+    }
+    .table_second{
+      overflow: scroll;
+    }
+    .table_first{
+      width: 70px;
+    }
+  }
