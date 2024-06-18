@@ -404,29 +404,29 @@
   </div>
 </template>
 <script>
-import $ from 'jquery';
-import FileSaver from 'file-saver';
-import { Document, Packer, Paragraph } from 'docx';
-import Multiselect from 'vue-multiselect';
-import dayjs from 'dayjs';
-import Loader from '../../UIComponents/Loader.vue';
-import RootCauseInfoModal from './RootCauseInfoModal.vue';
+import $ from "jquery";
+import FileSaver from "file-saver";
+import { Document, Packer, Paragraph } from "docx";
+import Multiselect from "vue-multiselect";
+import dayjs from "dayjs";
+import Loader from "../../UIComponents/Loader.vue";
+import RootCauseInfoModal from "./RootCauseInfoModal.vue";
 import {
   getRootCauseData,
   getRootCauseFilters,
   getSelectedRootCause,
   getRcaFiltersPDF,
-  getSearchRootCause
-} from '../../../apis/rootCauseAnalysis';
-import { getToolsPurchaseData } from '../../../apis/designRecommendationLibrary';
-import { getResourcesListById } from '../../../apis/marketPlaceResources';
-import Pagination from '../../LaunchPad/Pagination.vue';
-import marketPlaceTools from '../marketPlaceTools.vue';
-import BaseButton from '../../UIComponents/BaseButton.vue';
-import postMarketoFormData from '../../../apis/marketo';
+  getSearchRootCause,
+} from "../../../apis/rootCauseAnalysis";
+import { getToolsPurchaseData } from "../../../apis/designRecommendationLibrary";
+import { getResourcesListById } from "../../../apis/marketPlaceResources";
+import Pagination from "../../LaunchPad/Pagination.vue";
+import marketPlaceTools from "../marketPlaceTools.vue";
+import BaseButton from "../../UIComponents/BaseButton.vue";
+import postMarketoFormData from "../../../apis/marketo";
 
 export default {
-  props: ['userId'],
+  props: ["userId"],
   data() {
     return {
       loaderStatus: false,
@@ -436,7 +436,7 @@ export default {
       rootCauseFilters: {},
       selectedFilterId: [],
       rootCauseModalInfo: {},
-      enteredTag: '',
+      enteredTag: "",
       totalPages: 1,
       total: 0,
       perPage: 20,
@@ -451,12 +451,12 @@ export default {
       isPurchased: 1,
       isEmpty: false,
       rcaIndex: -1,
-      totalCurrentRecords: '',
-      searchText: '',
+      totalCurrentRecords: "",
+      searchText: "",
       isActive: false,
       hasExpand: true,
-      placeholder: 'Search',
-      selectedAllFilesIndeterminate: false
+      placeholder: "Search",
+      selectedAllFilesIndeterminate: false,
     };
   },
   components: {
@@ -465,7 +465,7 @@ export default {
     RootCauseInfoModal,
     Pagination,
     marketPlaceTools,
-    BaseButton
+    BaseButton,
   },
   async created() {
     this.loaderStatus = true;
@@ -500,7 +500,7 @@ export default {
         this.selectedAllFilesIndeterminate = true;
         this.selectAllFiles = false;
       }
-    }
+    },
   },
 
   methods: {
@@ -509,7 +509,7 @@ export default {
       this.clear();
     },
     async search() {
-      if (this.searchText !== '') {
+      if (this.searchText !== "") {
         this.fromRecords = 1;
         this.currentPage = 1;
         this.searchRootCause(this.searchText);
@@ -521,28 +521,28 @@ export default {
       this.enteredTag = [];
     },
     clear() {
-      this.searchText = '';
+      this.searchText = "";
     },
     async viewPdf() {
       this.loaderStatus = true;
       const response = await getRcaFiltersPDF();
       this.loaderStatus = false;
       this.$router.push({
-        name: 'RootCausePdfViewer',
-        params: {
+        name: "RootCausePdfViewer",
+        query: {
           pdfPath: response,
-          pdfName: 'RCA Wizard – Learn About Filters',
-          id: 2
-        }
+          pdfName: "RCA Wizard – Learn About Filters",
+          id: 2,
+        },
       });
     },
     async searchRootCause(query) {
       const formData = {
         pagination: {
           current_page: this.fromRecords,
-          result_per_page: this.perPage
+          result_per_page: this.perPage,
         },
-        search: query
+        search: query,
       };
       this.loaderStatus = true;
       const data = await getSearchRootCause(formData);
@@ -575,7 +575,7 @@ export default {
       this.loaderStatus = true;
       const [purchasedData, toolsData] = await Promise.all([
         getToolsPurchaseData(+this.userId),
-        getResourcesListById(1, this.userId)
+        getResourcesListById(1, this.userId),
       ]);
       this.toolsData = toolsData;
       // this.toolsData = await getResourcesListById(1, this.userId);
@@ -593,39 +593,39 @@ export default {
         const commentary = `${this.response[i].commentary}\n\n`;
         this.copiedData.push(title);
         this.copiedData.push(commentary);
-        this.finalData = [...this.copiedData].join('');
+        this.finalData = [...this.copiedData].join("");
       }
       if (this.finalData.length > 0) {
         this.$copyText(this.finalData).then(
           () => {
             this.$notify({
-              type: 'success',
-              title: 'Success',
-              text: 'Copied successfully!'
+              type: "success",
+              title: "Success",
+              text: "Copied successfully!",
             });
           },
           () => {
             this.$notify({
-              type: 'error',
-              title: 'Error',
-              text: 'Copy failed!'
+              type: "error",
+              title: "Error",
+              text: "Copy failed!",
             });
           }
         );
         const marketoForm = {
-          email: JSON.parse(localStorage.getItem('userData')).email,
-          Last_Interest: 'Human Factors Research & Design',
+          email: JSON.parse(localStorage.getItem("userData")).email,
+          Last_Interest: "Human Factors Research & Design",
           page_urlextended: window.location.href,
           page_urlreferral_extended: document.referrer,
-          form_control: 'Copy',
-          form_control_details: 'Root Causes'
+          form_control: "Copy",
+          form_control_details: "Root Causes",
         };
         postMarketoFormData(marketoForm);
       } else {
         this.$notify({
-          type: 'error',
-          title: 'Error',
-          text: 'Select atleast one root cause to copy!'
+          type: "error",
+          title: "Error",
+          text: "Select atleast one root cause to copy!",
         });
       }
       this.loaderStatus = false;
@@ -638,38 +638,38 @@ export default {
       for (let i = 0; i < response.length; i += 1) {
         const title = new Paragraph({
           text: `${response[i].title.trim()}`,
-          style: 'default-paragraph'
+          style: "default-paragraph",
         });
         const commentary = new Paragraph({
           text: `${response[i].commentary}`,
-          style: 'default-paragraph'
+          style: "default-paragraph",
         });
-        const newLine = new Paragraph('');
+        const newLine = new Paragraph("");
         this.copiedData.push(title);
         this.copiedData.push(commentary);
         this.copiedData.push(newLine);
       }
       this.finalData = [...this.copiedData];
-      const rcaDate = dayjs().format('MMDDYYYY');
+      const rcaDate = dayjs().format("MMDDYYYY");
       if (this.finalData.length > 0) {
         const doc = new Document({
           styles: {
             paragraphStyles: [
               {
-                id: 'default-paragraph',
-                name: 'Default Paragraph',
+                id: "default-paragraph",
+                name: "Default Paragraph",
                 run: {
-                  font: 'Calibri'
-                }
-              }
-            ]
+                  font: "Calibri",
+                },
+              },
+            ],
           },
           sections: [
             {
               properties: {},
-              children: [...this.finalData]
-            }
-          ]
+              children: [...this.finalData],
+            },
+          ],
         });
         if (this.selectedFiles.length > 1) {
           Packer.toBlob(doc).then((blob) => {
@@ -681,19 +681,19 @@ export default {
           });
         }
         const marketoForm = {
-          email: JSON.parse(localStorage.getItem('userData')).email,
-          Last_Interest: 'Human Factors Research & Design',
+          email: JSON.parse(localStorage.getItem("userData")).email,
+          Last_Interest: "Human Factors Research & Design",
           page_urlextended: window.location.href,
           page_urlreferral_extended: document.referrer,
-          form_control: 'Download',
-          form_control_details: 'Root Causes'
+          form_control: "Download",
+          form_control_details: "Root Causes",
         };
         postMarketoFormData(marketoForm);
       } else {
         this.$notify({
-          type: 'error',
-          title: 'Error',
-          text: 'Select atleast one root cause to download!'
+          type: "error",
+          title: "Error",
+          text: "Select atleast one root cause to download!",
         });
       }
       this.loaderStatus = false;
@@ -723,19 +723,19 @@ export default {
     openInfoModal(info, index) {
       this.rootCauseModalInfo = info;
       this.rcaIndex = index;
-      $('#root-cause-info').modal('show');
+      $("#root-cause-info").modal("show");
     },
     getFormData() {
       const formData = {
         pagination: {
           current_page: this.fromRecords,
-          result_per_page: this.perPage
+          result_per_page: this.perPage,
         },
-        sub_category_ids: this.selectedFilterId
+        sub_category_ids: this.selectedFilterId,
       };
       this.searchText = this.searchText
         ? (formData.search = this.searchText.trim())
-        : '';
+        : "";
       this.filterObj =
         Object.keys(this.filterObj).length !== 0
           ? (formData.filter = this.filterObj)
@@ -745,15 +745,15 @@ export default {
     async getRCAData(filterList) {
       // this.selectAllFiles = false;
       this.isActive = false;
-      this.searchText = '';
+      this.searchText = "";
       this.setSelectionsAsEmpty();
       this.currentPage = 1;
       const formData = {
         pagination: {
           current_page: 1,
-          result_per_page: this.perPage
+          result_per_page: this.perPage,
         },
-        sub_category_ids: filterList
+        sub_category_ids: filterList,
       };
       this.loaderStatus = true;
       const data = await getRootCauseData(formData);
@@ -776,12 +776,12 @@ export default {
         }
       }
       const marketoForm = {
-        email: JSON.parse(localStorage.getItem('userData')).email,
-        Last_Interest: 'Human Factors Research & Design',
+        email: JSON.parse(localStorage.getItem("userData")).email,
+        Last_Interest: "Human Factors Research & Design",
         page_urlextended: window.location.href,
         page_urlreferral_extended: document.referrer,
-        form_control: 'Apply RCA Filter',
-        form_control_details: filterList.join(', ')
+        form_control: "Apply RCA Filter",
+        form_control_details: filterList.join(", "),
       };
       postMarketoFormData(marketoForm);
       this.loaderStatus = false;
@@ -790,9 +790,9 @@ export default {
       const formData = {
         pagination: {
           current_page: this.fromRecords,
-          result_per_page: this.perPage
+          result_per_page: this.perPage,
         },
-        sub_category_ids: filterList
+        sub_category_ids: filterList,
       };
       this.loaderStatus = true;
       const data = await getRootCauseData(formData);
@@ -819,8 +819,8 @@ export default {
     setSelectionsAsEmpty() {
       this.selectAllFiles = false;
       this.selectedFiles = [];
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -892,7 +892,7 @@ export default {
 }
 
 .multiselect-single-dropdown >>> .multiselect__option {
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -950,13 +950,13 @@ export default {
   position: absolute;
   right: 14px;
 }
-a[aria-expanded='false'] .main-list-header:after {
+a[aria-expanded="false"] .main-list-header:after {
   content: url(/static/images/icons/chevron_down_black.svg);
   position: absolute;
   right: 14px;
 }
 
-a[aria-expanded='true'] .main-list-header:after {
+a[aria-expanded="true"] .main-list-header:after {
   content: url(/static/images/icons/chevron_down_black.svg);
   position: absolute;
   right: 14px;
@@ -1061,13 +1061,13 @@ a[aria-expanded='true'] .main-list-header:after {
   padding-left: 20px;
 }
 .sortKey.asc:before {
-  content: url('/static/images/icons/sortDesc.svg');
+  content: url("/static/images/icons/sortDesc.svg");
   position: relative;
   top: -3px;
   left: 2px;
 }
 .sortKey.dsc:before {
-  content: url('/static/images/icons/sortDesc.svg');
+  content: url("/static/images/icons/sortDesc.svg");
   display: inline-block;
   transform: rotate(180deg);
   position: relative;

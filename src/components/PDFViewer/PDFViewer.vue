@@ -12,8 +12,7 @@
       </div>
     </div>
     <div class="pdf-viewer">
-      <div>{{ url }}</div>
-      <VuePdfApp style="height: 100vh; width: 100vw" :pdf="url" />
+      <VuePdfApp style="height: 100vh; width: 100vw" :pdf="renderedUrl" />
       <!-- <PDFData
         class="pdf-viewer__main"
         :url="url"
@@ -69,6 +68,7 @@ export default {
       currentPage: 1,
       pageCount: undefined,
       isPreviewEnabled: false,
+      renderedUrl: "",
     };
   },
   methods: {
@@ -126,6 +126,9 @@ export default {
     },
   },
   mounted() {
+    setTimeout(() => {
+      this.renderedUrl = this.url;
+    }, 5000);
     document.body.classList.add("overflow-hidden");
   },
 };

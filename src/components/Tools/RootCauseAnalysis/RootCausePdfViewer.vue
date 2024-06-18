@@ -18,7 +18,8 @@
               class="col-xs-11 whitePaperName p-0 cursor-pointer ml-10"
               @click="navigateToScopeToolPage"
             >
-              {{ pdfName }}
+              <p v-if="$route.params.id === 1">View example RCA write up</p>
+              <p v-else>RCA Wizard – Learn About Filters</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-4 text-right">
@@ -43,42 +44,42 @@
 </template>
 
 <script>
-import Loader from '../../UIComponents/Loader.vue';
-import PDFViewer from '../../PDFViewer/PDFViewer.vue';
-import { pdfFileDownload } from '../../../utils/pdf-file-download';
-import { getSasToken } from '../../../apis/documents';
+import Loader from "../../UIComponents/Loader.vue";
+import PDFViewer from "../../PDFViewer/PDFViewer.vue";
+import { pdfFileDownload } from "../../../utils/pdf-file-download";
+import { getSasToken } from "../../../apis/documents";
 import {
   getRcaFiltersPDF,
-  getRcaWriteupPDF
-} from '../../../apis/rootCauseAnalysis';
-import postMarketoFormData from '../../../apis/marketo';
+  getRcaWriteupPDF,
+} from "../../../apis/rootCauseAnalysis";
+import postMarketoFormData from "../../../apis/marketo";
 
 export default {
-  props: ['pdfPath', 'pdfName', 'stepper'],
+  props: ["pdfPath", "stepper"],
   data() {
     return {
       displayPdf: true,
       loaderStatus: false,
-      filePath: ''
+      filePath: "",
     };
   },
   components: {
     PDFViewer,
-    Loader
+    Loader,
   },
   methods: {
     clearNotifications() {
       this.$notify({
-        clear: true
+        clear: true,
       });
     },
     async getPDFDetails(path) {
       this.loaderStatus = true;
       this.filePath = path;
       const formData = {
-        container_name: 'tools',
-        permissions: 'read',
-        storage_name: 'opus-storage-java'
+        container_name: "tools",
+        permissions: "read",
+        storage_name: "opus-storage-java",
       };
       const sasToken = await getSasToken(formData);
       this.filePath = `${import.meta.env.VITE_VUE_APP_AZURE_BLOB_URL}${this.filePath}?${sasToken.data}`;
@@ -87,21 +88,21 @@ export default {
     },
     async downLoadWhitePaper() {
       const marketoForm = {
-        email: JSON.parse(localStorage.getItem('userData')).email,
-        Last_Interest: 'Human Factors Research & Design',
+        email: JSON.parse(localStorage.getItem("userData")).email,
+        Last_Interest: "Human Factors Research & Design",
         page_urlextended: window.location.href,
         page_urlreferral_extended: document.referrer,
-        form_control: 'Download',
-        form_control_details: 'RCA Writeup Preview'
+        form_control: "Download",
+        form_control_details: "RCA Writeup Preview",
       };
       postMarketoFormData(marketoForm);
       const response = await pdfFileDownload(this.filePath);
       if (response && response.error) {
         this.clearNotifications();
         this.$notify({
-          type: 'error',
-          title: 'Error',
-          text: response.error.errorMessage
+          type: "error",
+          title: "Error",
+          text: response.error.errorMessage,
         });
       }
     },
@@ -111,9 +112,9 @@ export default {
     },
     navigateToScopeToolPage() {
       this.$router.push({
-        name: 'Root Cause Analysis'
+        name: "Root Cause Analysis",
       });
-    }
+    },
   },
   // Know what watch is doing here and remove if not necessary
   watch: {
@@ -125,19 +126,18 @@ export default {
         const response = await getRcaFiltersPDF();
         await this.getPDFDetails(response);
       }
-    }
+    },
   },
   async created() {
+    console.log("Route in pdf viewer", this.$route);
     if (+this.$route.params.id === 1) {
       const response = await getRcaWriteupPDF();
-      this.pdfName = 'View example RCA write up';
       await this.getPDFDetails(response);
     } else {
       const response = await getRcaFiltersPDF();
-      this.pdfName = 'RCA Wizard – Learn About Filters';
       await this.getPDFDetails(response);
     }
-  }
+  },
 };
 </script>
 

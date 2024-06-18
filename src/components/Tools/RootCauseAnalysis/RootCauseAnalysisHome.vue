@@ -73,28 +73,28 @@
   </div>
 </template>
 <script>
-import $ from 'jquery';
-import Loader from '../../UIComponents/Loader.vue';
-import RootCauseContent from './RootCauseContent.vue';
-import RCAPerformModal from './PerformModal.vue';
-import SuggestRootCauseModal from './SuggestRootCause.vue';
-import { getTrainingData } from '../../../apis/lmsTraining';
-import { getRcaWriteupPDF } from '../../../apis/rootCauseAnalysis';
-import { getToolsPurchaseData } from '../../../apis/designRecommendationLibrary';
-import { removeFromCart } from '../../../apis/cart';
-import AddRemoveCartPopup from '../../NewMarketPlace/Modals/AddRemoveCartPopup.vue';
-import { getResourcesListById } from '../../../apis/marketPlaceResources';
-import EventBus from '../../../utils/event-bus';
-import postMarketoFormData from '../../../apis/marketo';
+import $ from "jquery";
+import Loader from "../../UIComponents/Loader.vue";
+import RootCauseContent from "./RootCauseContent.vue";
+import RCAPerformModal from "./PerformModal.vue";
+import SuggestRootCauseModal from "./SuggestRootCause.vue";
+import { getTrainingData } from "../../../apis/lmsTraining";
+import { getRcaWriteupPDF } from "../../../apis/rootCauseAnalysis";
+import { getToolsPurchaseData } from "../../../apis/designRecommendationLibrary";
+import { removeFromCart } from "../../../apis/cart";
+import AddRemoveCartPopup from "../../NewMarketPlace/Modals/AddRemoveCartPopup.vue";
+import { getResourcesListById } from "../../../apis/marketPlaceResources";
+import EventBus from "../../../utils/event-bus";
+import postMarketoFormData from "../../../apis/marketo";
 
 export default {
-  props: ['userId'],
+  props: ["userId"],
   data() {
     return {
       loaderStatus: false,
       trainingInfo: null,
       cartInfo: {},
-      isPurchased: 1
+      isPurchased: 1,
     };
   },
   components: {
@@ -102,7 +102,7 @@ export default {
     RootCauseContent,
     RCAPerformModal,
     SuggestRootCauseModal,
-    AddRemoveCartPopup
+    AddRemoveCartPopup,
   },
   async created() {
     await Promise.all([this.getToolData(), this.getTrainings()]);
@@ -120,7 +120,7 @@ export default {
     async getToolData() {
       const [purchasedData, toolsData] = await Promise.all([
         getToolsPurchaseData(+this.userId),
-        getResourcesListById(1, this.userId)
+        getResourcesListById(1, this.userId),
       ]);
       this.toolsData = toolsData;
       // this.toolsData = await getResourcesListById(1, this.userId);
@@ -128,93 +128,97 @@ export default {
       this.isPurchased = purchasedData[1].enrolled;
     },
     closeAddRemoveCart() {
-      $('#addRemoveCartPopup').modal('hide');
+      $("#addRemoveCartPopup").modal("hide");
       this.getTrainings();
     },
     setCartInfo(cartDetails) {
       this.cartInfo = { ...cartDetails.cartInfo };
       this.selectedCartItem = cartDetails.item;
-      if ($('#modal_video').hasClass('in') && this.cartInfo.type === 'add') {
-        $('#modal_video').modal('hide');
+      if ($("#modal_video").hasClass("in") && this.cartInfo.type === "add") {
+        $("#modal_video").modal("hide");
       }
-      $('#addRemoveCartPopup').modal({
-        backdrop: 'static',
-        keyboard: false
+      $("#addRemoveCartPopup").modal({
+        backdrop: "static",
+        keyboard: false,
       });
     },
 
     async removeFromCart() {
-      $('#addRemoveCartPopup').modal('hide');
+      $("#addRemoveCartPopup").modal("hide");
       this.loaderStatus = true;
       const res = await removeFromCart(
         this.selectedCartItem.cart_status.cart_id
       );
       this.loaderStatus = false;
       if (res.data && res.data.status_code === 200) {
-        if ($('#modal_video').hasClass('in')) {
-          $('#modal_video').modal('hide');
+        if ($("#modal_video").hasClass("in")) {
+          $("#modal_video").modal("hide");
         }
         this.$notify({
           type: res.data.message,
-          title: 'Success',
-          text: res.data.data
+          title: "Success",
+          text: res.data.data,
         });
         this.getTrainings();
-        this.emitter.emit('cart-items-updated');
+        this.emitter.emit("cart-items-updated");
       }
     },
     navigateToTools() {
-      this.$router.push('/tools');
+      this.$router.push("/tools");
     },
     navigateToContactUs() {
-      this.$router.push('/contact');
+      this.$router.push("/contact");
     },
     openPerformModal() {
       this.trainingInfo = this.trainingList;
       const finalData = this.trainingInfo.map((item) => {
-          if (item.cart_status && item.cart_status.purchase_status === 'REMOVE_FROM_CART') {
-            item.cart_status.purchase_status = 'GO_TO_CART';
-          }
-          return item;
-        });
-        this.trainingInfo = finalData;
+        if (
+          item.cart_status &&
+          item.cart_status.purchase_status === "REMOVE_FROM_CART"
+        ) {
+          item.cart_status.purchase_status = "GO_TO_CART";
+        }
+        return item;
+      });
+      this.trainingInfo = finalData;
       const marketoForm = {
-        email: JSON.parse(localStorage.getItem('userData')).email,
-        Last_Interest: 'Human Factors Research & Design',
+        email: JSON.parse(localStorage.getItem("userData")).email,
+        Last_Interest: "Human Factors Research & Design",
         page_urlextended: window.location.href,
         page_urlreferral_extended: document.referrer,
-        form_control: 'View',
-        form_control_details: 'How to perform RCA'
+        form_control: "View",
+        form_control_details: "How to perform RCA",
       };
       postMarketoFormData(marketoForm);
-      $('#modal_video').modal('show');
+      $("#modal_video").modal("show");
     },
     async openRCAExampleModal() {
       this.loaderStatus = true;
       const response = await getRcaWriteupPDF();
       this.loaderStatus = false;
       const marketoForm = {
-        email: JSON.parse(localStorage.getItem('userData')).email,
-        Last_Interest: 'Human Factors Research & Design',
+        email: JSON.parse(localStorage.getItem("userData")).email,
+        Last_Interest: "Human Factors Research & Design",
         page_urlextended: window.location.href,
         page_urlreferral_extended: document.referrer,
-        form_control: 'View',
-        form_control_details: 'View Sample RCA Writeup'
+        form_control: "View",
+        form_control_details: "View Sample RCA Writeup",
       };
       postMarketoFormData(marketoForm);
-      this.$router.push({
-        name: 'RootCausePdfViewer',
+      await this.$router.push({
+        name: "RootCausePdfViewer",
         params: {
           pdfPath: response,
-          pdfName: 'View example RCA write up',
-          id: 1
-        }
+          pdfName: "",
+          id: 1,
+        },
       });
+      console.log("Before", this.$route);
     },
     openSuggestModal() {
-      $('#suggest-root-cause').modal('show');
-    }
-  }
+      $("#suggest-root-cause").modal("show");
+    },
+  },
 };
 </script>
 
